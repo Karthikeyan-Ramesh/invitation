@@ -148,9 +148,8 @@ h='<div id="op" role="button" tabindex="0" aria-label="Open invitation"><p class
 +'<section class="s lt"><div class="fl" data-f="1"></div><h2>A beautiful beginning</h2>'+(o.host?'<p class="p">'+esc(o.host)+'</p>':'')+'<p class="p">'+esc(o.msg)+'</p></section>'
 +'<section class="s dk d1"><h2 style="color:var(--gd)">Save the date</h2><div class="cd" id="cd"></div><p style="font-size:1.2rem;margin:0">'+esc(long)+'</p><p style="margin:0">'+esc(tm)+'</p>'+(o.ev2?'<p style="margin-top:14px;color:var(--gd)">'+esc(o.ev2)+'</p>':'')+'</section>'
 +(ph&&ph.length>1?'<section class="s lt"><h2>Our moments</h2><div class="gal">'+ph.slice(1,5).map(function(p){return'<img alt="Wedding couple" src="'+p+'">'}).join("")+'</div></section>':'')
-+'<section class="s dk d2"><p class="p sc" style="font-size:2rem">'+esc(o.g)+' &amp; '+esc(o.b)+'</p><p class="p">We cannot wait to celebrate with you.</p></section>'
 +'<section class="s lt"><h2>Directions</h2><p class="p"><strong>S S Mahal</strong><br>SH 15, Konamoolai, Tamil Nadu 638402</p><a class="btn" target="_blank" rel="noopener" href="'+esc(map)+'">Open in Google Maps</a></section>'
-+'<section class="dk" style="padding:30px;text-align:center"><a class="btn o" href="#" id="mk">Make your own invitation</a></section>';
++'<section class="dk d2" style="padding:70px 22px;text-align:center"><p class="sc" style="font-size:2.6rem;margin:0">Thank you</p><p class="p">Your presence and blessings mean the world to us. We look forward to celebrating with you.</p><p class="sc" style="font-size:1.8rem;margin:10px 0 0">'+esc(o.g)+' &amp; '+esc(o.b)+'</p></section>';
 $("iv").innerHTML=h;var si=$("iv").querySelector(".sl img");if(si)si.onerror=function(){if(!si.dataset.fb){si.dataset.fb=1;si.src=SEAL_FB;return}var p=si.parentNode;p.removeAttribute("style");p.textContent=(o.g||"").charAt(0)+"&"+(o.b||"").charAt(0)};$("ed").classList.add("hide");$("iv").classList.remove("hide");window.scrollTo(0,0);
 var hr=$("iv").querySelector(".hero"),op=$("op");document.body.style.overflow="hidden";
 function openIt(){if(op.classList.contains("open"))return;op.classList.add("open");setTimeout(function(){op.style.opacity=0;op.style.transform="scale(1.15)";hr.classList.add("go");document.body.style.overflow=""},2300);setTimeout(function(){op.remove()},3500)}
@@ -160,7 +159,6 @@ for(i=0;i<26;i++){var q=document.createElement("span"),w=6+Math.random()*12;q.cl
 $("iv").querySelectorAll(".fl").forEach(function(n){n.innerHTML=flower(+n.dataset.f)});
 var rv=$("iv").querySelectorAll(".s:not(.hero)>*,section.dk[style]>*");rv.forEach(function(n,k){n.classList.add("rv");n.style.transitionDelay=(k%3)*.15+"s"});
 if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.2});rv.forEach(function(n){io.observe(n)})}else rv.forEach(function(n){n.classList.add("in")});
-$("mk").onclick=function(e){e.preventDefault();document.body.style.overflow="";$("iv").classList.add("hide");$("ed").classList.remove("hide");document.body.dataset.t=$("th").value;window.scrollTo(0,0)};
 function tick(){var d=dt-new Date(),el=$("cd");if(!el)return;if(!ok){el.textContent="";return}
 if(d<=0){el.innerHTML="<p>Today is the day</p>";return}
 var v=[[Math.floor(d/864e5),"days"],[Math.floor(d%864e5/36e5),"hours"],[Math.floor(d%36e5/6e4),"minutes"],[Math.floor(d%6e4/1e3),"seconds"]];
